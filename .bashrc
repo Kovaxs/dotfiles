@@ -66,6 +66,22 @@ if [[ $(uname) == "Darwin" ]]; then
 #     source <(kubectl completion bash)
 fi
 
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/oleksandr/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/oleksandr/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/oleksandr/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/oleksandr/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+
 if [[ $(uname) == "Darwin" ]]; then
     # Conda
     __conda_setup="$("$HOME/miniconda3/bin/conda" 'shell.bash' 'hook' 2> /dev/null)"
@@ -73,9 +89,9 @@ if [[ $(uname) == "Darwin" ]]; then
         eval "$__conda_setup"
     else
         if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
-            . "$HOME/miniconda3/etc/profile.d/conda.sh"
+            . "$HOME/miniconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
         else
-            export PATH="$HOME/miniconda3/bin:$PATH"
+            export PATH="$HOME/miniconda3/bin:$PATH"  # commented out by conda initialize
         fi
     fi
     unset __conda_setup
@@ -130,3 +146,4 @@ if [[ $(uname) == "Darwin" ]]; then
     . "$HOME/.cargo/env"
 fi
 # eval "$(register-python-argcomplete conda)"
+
