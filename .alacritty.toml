@@ -8,7 +8,7 @@ import = [
 size = 15
 
 [font.normal]
-family = "ComicCodeLigatures Nerd Font"
+family = "ComicCodeLigaturesNerdFonr-Medium"
 
 [window]
 opacity=0.95

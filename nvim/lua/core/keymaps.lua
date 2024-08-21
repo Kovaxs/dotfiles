@@ -128,6 +128,7 @@ keymap.set("n", "<leader>h6", function() require("harpoon.ui").nav_file(6) end, 
 keymap.set("n", "<leader>h7", function() require("harpoon.ui").nav_file(7) end, {desc = "Navigate to 7"})
 keymap.set("n", "<leader>h8", function() require("harpoon.ui").nav_file(8) end, {desc = "Navigate to 8"})
 keymap.set("n", "<leader>h9", function() require("harpoon.ui").nav_file(9) end, {desc = "Navigate to 9"})
+keymap.set("n", "<leader>hg1", function() require("harpoon.tmux").sendCommand("2", 1); require("harpoon.tmux").gotoTerminal("2") end, {desc = "Run the first command on Tmux pane 2"})
 
 -- Undo Tree
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, {desc = "Toggle undo tree"})

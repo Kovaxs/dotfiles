@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+setxkbmap -layout us,es -option 'grp:ctrl_space_toggle'
