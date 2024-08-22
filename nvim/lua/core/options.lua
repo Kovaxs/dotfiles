@@ -3,6 +3,8 @@ local opt = vim.opt
 -- Session Management
 opt.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
+opt.cmdheight = 1  -- or any number you prefer
+
 -- Spell check
 opt.spelllang = 'en_us'
 opt.spell = true
