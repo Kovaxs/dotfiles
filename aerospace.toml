@@ -82,7 +82,7 @@ outer.right =      1
 
 # You can uncomment this line to open up terminal with alt + enter shortcut
 # See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
-alt-enter = 'exec-and-forget open -n /Applications/kitty.app'
+# alt-enter = 'exec-and-forget open -n /Applications/kitty.app'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 alt-slash = 'layout tiles horizontal vertical'
@@ -202,7 +202,7 @@ alt-shift-l = ['join-with right', 'mode main']
 10 = 'secondary'
 
 [[on-window-detected]]
-if.app-id = 'com.microsoft.edgemac'
+if.app-id = 'com.apple.Safari'
 # if.window-title-regex-substring = '.+(twitch|youtube).+'
 run = ['move-node-to-workspace 1']
 
