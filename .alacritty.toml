@@ -1,11 +1,5 @@
-# themes from https://github.com/alacritty/alacritty-theme
-
-import = [
-    "~/.config/alacritty/themes/themes/gruvbox_dark.toml"
-]
-
 [font]
-size = 15
+size = 17
 
 [font.normal]
 family = "ComicCodeLigatures Nerd Font"
@@ -20,6 +14,13 @@ y = 0
 
 [env]
 term = "tmux-256color"
+
+[general]
+# themes from https://github.com/alacritty/alacritty-theme
+
+import = [
+    "~/.config/alacritty/themes/themes/catppuccin_mocha.toml"
+]
 
 # [shell]
 # program = "/opt/homebrew/bin/tmux"
