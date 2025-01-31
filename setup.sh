@@ -12,6 +12,7 @@ ln -sf "$DOTFILES_DIR/.gitconfig" "$HOME/.gitconfig"
 ln -sf "$DOTFILES_DIR/.tmux.conf" "$HOME/.tmux.conf"
 ln -sf "$DOTFILES_DIR/.vimrc" "$HOME/.vimrc"
 ln -sf "$DOTFILES_DIR/themes" "$HOME/.config/kitty/themes"
-ln -s /Users/kovaxs/dotfiles/nix ~/nix
+ln -sf "$DOTFILES_DIR/.alacritty.toml" "$HOME/.alacritty.toml"
+ln -sf "$DOTFILES_DIR/themes/gruvbox_dark.toml" "$HOME/.config/alacritty/themes/themes/gruvbox_dark.toml"
 
 echo "All dotfiles have been linked."
