@@ -202,12 +202,19 @@ alt-shift-l = ['join-with right', 'mode main']
 10 = 'secondary'
 
 [[on-window-detected]]
-if.app-id = 'com.apple.Safari'
+# if.app-id = 'com.apple.Safari'
+if.app-id = 'com.google.Chrome'
 # if.window-title-regex-substring = '.+(twitch|youtube).+'
 run = ['move-node-to-workspace 1']
 
 [[on-window-detected]]
-if.app-id = 'net.kovidgoyal.kitty'
+if.app-id = 'com.apple.Safari'
+# if.app-id = 'com.google.Chrome'
+# if.window-title-regex-substring = '.+(twitch|youtube).+'
+run = ['move-node-to-workspace 1']
+
+[[on-window-detected]]
+if.app-id = 'org.alacritty'
 run = ['move-node-to-workspace 2']
 
 [[on-window-detected]]
@@ -219,6 +226,10 @@ if.app-id = 'com.apple.mail'
 run = ['move-node-to-workspace 4']
 
 [[on-window-detected]]
+if.app-id = 'org.mozilla.thunderbird'
+run = ['move-node-to-workspace 4']
+
+[[on-window-detected]]
 if.app-id = 'com.microsoft.teams2'
 run = ['move-node-to-workspace 5']
 
@@ -226,6 +237,10 @@ run = ['move-node-to-workspace 5']
 [[on-window-detected]]
 if.app-id = 'ru.keepcoder.Telegram'
 run = ['move-node-to-workspace 5']
+
+[[on-window-detected]]
+if.app-id = 'com.philandro.anydesk'
+run = ['move-node-to-workspace 6']
 
 [[on-window-detected]]
 if.app-id = 'com.hnc.Discord'
@@ -253,6 +268,10 @@ run = ['move-node-to-workspace O']
 
 [[on-window-detected]]
 if.app-id = 'com.apple.Music'
+run = ['move-node-to-workspace M']
+
+[[on-window-detected]]
+if.app-id = 'com.apple.podcasts'
 run = ['move-node-to-workspace M']
 
 [[on-window-detected]]
