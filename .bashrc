@@ -149,7 +149,8 @@ function __ps1(){
 }
 #
 PROMPT_COMMAND="__ps1"
-    # eval $(/opt/homebrew/bin/brew shellenv)
+
+. "$HOME/.cargo/env"
 # Put this in your ~/.bashrc or ~/.zshrc
 
 # Helper function to determine if we're in a uv-managed project context
