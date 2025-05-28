@@ -21,8 +21,8 @@ fi
 alias l='ls -lhaFS'
 alias wl='watch -n 1 ls -lh'
 # alias v='nvim'
-alias v='nvim'
-alias vf='nvim $(fzf)'
+# alias v='nvim'
+# alias vf='nvim $(fzf)'
 alias ctop='TERM="${TERM/#tmux/screen}" ctop'
 alias git='/run/current-system/sw/bin/git'
 # alias nixu='nix run nix-darwin --extra-experimental-features "nix-command flakes" -- switch --flake ~/nix#kovaxs'
@@ -49,7 +49,7 @@ export BAT_PAGER="less -R"
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --bash)"
 
-# git 
+# git
 source ~/dotfiles/.git-prompt.sh
 
 # Misc
@@ -137,7 +137,7 @@ function __ps1(){
         APS1="$BLUE"
         APS1+=" "
     fi
-    
+
     #
     APS1+="${conda_env} ${GREEN}\u"
     APS1+="${BLUE}  \W"
@@ -150,3 +150,46 @@ function __ps1(){
 #
 PROMPT_COMMAND="__ps1"
     # eval $(/opt/homebrew/bin/brew shellenv)
+# Put this in your ~/.bashrc or ~/.zshrc
+
+# Helper function to determine if we're in a uv-managed project context
+_is_in_uv_project_context() {
+    local dir="$PWD"
+    # Loop upwards from the current directory
+    while [[ -n "$dir" && "$dir" != "/" ]]; do
+        if [[ -f "$dir/uv.lock" ]]; then
+            # Found pyproject.toml, this is likely a uv-manageable project
+            return 0 # Bash success
+        fi
+        # Prevent infinite loop if PWD is "/" already or some other edge case
+        if [[ "$dir" == "$(dirname "$dir")" ]]; then
+            break # Reached filesystem root or an unresolvable path
+        fi
+        dir="$(dirname "$dir")"
+    done
+    # Check root itself if the loop exited due to $dir becoming "/"
+    if [[ -f "/uv.lock" ]]; then
+        return 0
+    fi
+    return 1 # Bash failure (not found)
+}
+
+# The smart nvim function
+_smart_nvim() {
+    # Check if uv is installed and we are in a uv project context
+    if command -v uv >/dev/null 2>&1 && _is_in_uv_project_context; then
+        # Optional: Uncomment for a visual confirmation message
+        echo ">>> Detected uv project. Running: uv run nvim $*" >&2
+        uv run nvim "$@" # Pass all arguments to uv run nvim
+        return $?        # Return the exit status of uv run nvim
+    else
+        # Optional: Uncomment for a visual confirmation message
+        echo ">>> No uv project detected or uv not found. Running: nvim $*" >&2
+        command nvim "$@" # Use 'command nvim' to bypass this alias/function and run the actual nvim
+        return $?         # Return the exit status of nvim
+    fi
+}
+
+# Alias 'nvim' to use the smart function.
+# If you type 'nvim', it will now run '_smart_nvim'.
+alias v='_smart_nvim'

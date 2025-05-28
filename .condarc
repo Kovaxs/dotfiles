@@ -1,6 +1,6 @@
 solver: classic
 changeps1: true
-auto_activate_base: true
+auto_activate_base: false
 channel_priority: strict
 channels:
   - conda-forge
