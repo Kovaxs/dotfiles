@@ -1,8 +1,9 @@
 [font]
-size = 17
+size = 16
 
 [font.normal]
-family = "ComicCodeLigatures Nerd Font"
+# family = "ZedMono Nerd Font Propo"
+family = "JetBrainsMonoNL Nerd Font Propo"
 
 [window]
 opacity=0.95
@@ -19,7 +20,10 @@ term = "tmux-256color"
 # themes from https://github.com/alacritty/alacritty-theme
 
 import = [
-    "~/.config/alacritty/themes/themes/catppuccin_mocha.toml"
+    # "~/.config/alacritty/themes/themes/catppuccin_mocha.toml"
+    # "~/.config/alacritty/themes/themes/gruvbox_dark.toml"
+    # "~/.config/alacritty/themes/themes/github_dark.toml"
+    "~/.config/alacritty/themes/themes/gruvbox_material_hard_dark.toml"
 ]
 
 # [shell]
