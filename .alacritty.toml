@@ -8,6 +8,7 @@ family = "JetBrainsMonoNL Nerd Font Propo"
 [window]
 opacity=0.95
 decorations = "none"
+option_as_alt = "Both"
 
 [window.padding]
 x = 7
