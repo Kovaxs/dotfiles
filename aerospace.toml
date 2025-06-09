@@ -115,10 +115,10 @@ alt-7 = 'workspace 7'
 alt-8 = 'workspace 8'
 alt-9 = 'workspace 9'
 alt-0 = 'workspace 10'
-alt-m = 'workspace M' # Music
-alt-n = 'workspace N' # Notes
-alt-o = 'workspace O' # Obsidian
-alt-r = 'workspace R' # Reminder
+# alt-m = 'workspace M' # Music
+# alt-n = 'workspace N' # Notes
+# alt-o = 'workspace O' # Obsidian
+# alt-r = 'workspace R' # Reminder
 # alt-a = 'workspace A' # In your config, you can drop workspace bindings that you don't need
 # alt-b = 'workspace B'
 # alt-c = 'workspace C'
@@ -149,10 +149,10 @@ alt-shift-7 = 'move-node-to-workspace 7'
 alt-shift-8 = 'move-node-to-workspace 8'
 alt-shift-9 = 'move-node-to-workspace 9'
 alt-shift-0 = 'move-node-to-workspace 10'
-alt-shift-m = 'move-node-to-workspace M'
-alt-shift-n = 'move-node-to-workspace N'
-alt-shift-o = 'move-node-to-workspace O'
-alt-shift-r = 'move-node-to-workspace R'
+# alt-shift-m = 'move-node-to-workspace M'
+# alt-shift-n = 'move-node-to-workspace N'
+# alt-shift-o = 'move-node-to-workspace O'
+# alt-shift-r = 'move-node-to-workspace R'
 # alt-shift-a = 'move-node-to-workspace A'
 # alt-shift-b = 'move-node-to-workspace B'
 # alt-shift-c = 'move-node-to-workspace C'
@@ -247,8 +247,10 @@ if.app-id = 'com.philandro.anydesk'
 run = ['move-node-to-workspace 6']
 
 [[on-window-detected]]
-if.app-id = 'com.hnc.Discord'
-run = ['move-node-to-workspace 0']
+# if.app-id = 'com.hnc.Discord'
+# run = ['move-node-to-workspace 0']
+if.app-id = 'md.obsidian'
+run = ['move-node-to-workspace O']
 
 [[on-window-detected]]
 if.app-id = 'org.zotero.zotero'
@@ -265,25 +267,4 @@ run = ['move-node-to-workspace 9']
 [[on-window-detected]]
 if.app-id = 'com.apple.Safari.WebApp.4345D9B1-EE28-4726-A344-5C8AE622D926'
 run = ['move-node-to-workspace 9']
-
-[[on-window-detected]]
-if.app-id = 'md.obsidian'
-run = ['move-node-to-workspace O']
-
-[[on-window-detected]]
-if.app-id = 'com.apple.Music'
-run = ['move-node-to-workspace M']
-
-[[on-window-detected]]
-if.app-id = 'com.apple.podcasts'
-run = ['move-node-to-workspace M']
-
-[[on-window-detected]]
-if.app-id = 'com.apple.Notes'
-run = ['move-node-to-workspace N']
-
-[[on-window-detected]]
-if.app-id = 'com.apple.reminders'
-run = ['move-node-to-workspace R']
-
 
