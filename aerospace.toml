@@ -25,10 +25,10 @@ enable-normalization-opposite-orientation-for-nested-containers = true
 # See: https://nikitabobko.github.io/AeroSpace/guide#layouts
 # The 'accordion-padding' specifies the size of accordion padding
 # You can set 0 to disable the padding feature
-accordion-padding = 30
+accordion-padding = 15
 
 # Possible values: tiles|accordion
-default-root-container-layout = 'tiles'
+default-root-container-layout = 'accordion'
 
 # Possible values: horizontal|vertical|auto
 # 'auto' means: wide monitor (anything wider than high) gets horizontal orientation,
@@ -53,12 +53,12 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 #                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-inner.horizontal = 1
-inner.vertical =   1
-outer.left =       1
-outer.bottom =     1
-outer.top =        1
-outer.right =      1
+inner.horizontal = 5
+inner.vertical =   5
+outer.left =       5
+outer.bottom =     5
+outer.top =        5
+outer.right =      5
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -82,27 +82,28 @@ outer.right =      1
 
 # You can uncomment this line to open up terminal with alt + enter shortcut
 # See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
-# alt-enter = 'exec-and-forget open -n /Applications/kitty.app'
+alt-enter = 'exec-and-forget open -n /Applications/Alacritty.app'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 alt-slash = 'layout tiles horizontal vertical'
 alt-comma = 'layout accordion horizontal vertical'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
-alt-h = 'focus left'
-alt-j = 'focus down'
-alt-k = 'focus up'
-alt-l = 'focus right'
+alt-left = 'focus left'
+alt-down = 'focus down'
+alt-up = 'focus up'
+alt-right = 'focus right'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move
-alt-shift-h = 'move left'
-alt-shift-j = 'move down'
-alt-shift-k = 'move up'
-alt-shift-l = 'move right'
+alt-shift-left = 'move left'
+alt-shift-down = 'move down'
+alt-shift-up = 'move up'
+alt-shift-right = 'move right'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#resize
 alt-shift-minus = 'resize smart -50'
 alt-shift-equal = 'resize smart +50'
+alt-equal = 'balance-sizes'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
 alt-1 = 'workspace 1'
@@ -115,28 +116,6 @@ alt-7 = 'workspace 7'
 alt-8 = 'workspace 8'
 alt-9 = 'workspace 9'
 alt-0 = 'workspace 10'
-# alt-m = 'workspace M' # Music
-# alt-n = 'workspace N' # Notes
-# alt-o = 'workspace O' # Obsidian
-# alt-r = 'workspace R' # Reminder
-# alt-a = 'workspace A' # In your config, you can drop workspace bindings that you don't need
-# alt-b = 'workspace B'
-# alt-c = 'workspace C'
-# alt-d = 'workspace D'
-# alt-e = 'workspace E'
-# alt-f = 'workspace F'
-# alt-g = 'workspace G'
-# alt-i = 'workspace I'
-# alt-p = 'workspace P'
-# alt-q = 'workspace Q'
-# alt-s = 'workspace S'
-# alt-t = 'workspace T'
-# alt-u = 'workspace U'
-# alt-v = 'workspace V'
-# alt-w = 'workspace W'
-# alt-x = 'workspace X'
-# alt-y = 'workspace Y'
-# alt-z = 'workspace Z'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = 'move-node-to-workspace 1'
@@ -149,28 +128,6 @@ alt-shift-7 = 'move-node-to-workspace 7'
 alt-shift-8 = 'move-node-to-workspace 8'
 alt-shift-9 = 'move-node-to-workspace 9'
 alt-shift-0 = 'move-node-to-workspace 10'
-# alt-shift-m = 'move-node-to-workspace M'
-# alt-shift-n = 'move-node-to-workspace N'
-# alt-shift-o = 'move-node-to-workspace O'
-# alt-shift-r = 'move-node-to-workspace R'
-# alt-shift-a = 'move-node-to-workspace A'
-# alt-shift-b = 'move-node-to-workspace B'
-# alt-shift-c = 'move-node-to-workspace C'
-# alt-shift-d = 'move-node-to-workspace D'
-# alt-shift-e = 'move-node-to-workspace E'
-# alt-shift-f = 'move-node-to-workspace F'
-# alt-shift-g = 'move-node-to-workspace G'
-# alt-shift-i = 'move-node-to-workspace I'
-# alt-shift-p = 'move-node-to-workspace P'
-# alt-shift-q = 'move-node-to-workspace Q'
-# alt-shift-s = 'move-node-to-workspace S'
-# alt-shift-t = 'move-node-to-workspace T'
-# alt-shift-u = 'move-node-to-workspace U'
-# alt-shift-v = 'move-node-to-workspace V'
-# alt-shift-w = 'move-node-to-workspace W'
-# alt-shift-x = 'move-node-to-workspace X'
-# alt-shift-y = 'move-node-to-workspace Y'
-# alt-shift-z = 'move-node-to-workspace Z'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
@@ -183,12 +140,14 @@ alt-shift-f = 'fullscreen'
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 alt-shift-semicolon = 'mode service'
 
+cmd-h = [] # Disable "hide application"
+cmd-alt-h = [] # Disable "hide others"
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
 esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main'] # reset layout
-#s = ['layout sticky tiling', 'mode main'] # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
+# s = ['layout sticky tiling', 'mode main'] # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
 f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
 backspace = ['close-all-windows-but-current', 'mode main']
 
@@ -200,22 +159,33 @@ alt-shift-l = ['join-with right', 'mode main']
 
 [workspace-to-monitor-force-assignment]
 10 = 'secondary'
+9 = 'secondary'
+8 = 'secondary'
+7 = 'secondary'
+6 = 'secondary'
 
 [[on-window-detected]]
-# if.app-id = 'com.apple.Safari'
+#     if.app-id = 'com.apple.systempreferences'
+#     if.app-name-regex-substring = 'settings'
+#     if.window-title-regex-substring = 'substring'
+    if.workspace = 'workspace-name 2'
+#     if.during-aerospace-startup = true
+#     check-further-callbacks = true
+    run = ['layout tiling']  # The callback itself
+
+[[on-window-detected]]
 if.app-id = 'com.google.Chrome'
-# if.window-title-regex-substring = '.+(twitch|youtube).+'
 run = ['move-node-to-workspace 1']
 
 [[on-window-detected]]
 if.app-id = 'com.apple.Safari'
-# if.app-id = 'com.google.Chrome'
-# if.window-title-regex-substring = '.+(twitch|youtube).+'
 run = ['move-node-to-workspace 1']
 
-[[on-window-detected]]
-if.app-id = 'org.alacritty'
-run = ['move-node-to-workspace 2']
+# [[on-window-detected]]
+# if.app-id = 'org.alacritty'
+# # if.app-id = 'com.google.Chrome'
+# # if.window-title-regex-substring = '.+(twitch|youtube).+'
+# run = ['move-node-to-workspace 2']
 
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
@@ -235,29 +205,66 @@ run = ['move-node-to-workspace 4']
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.teams2'
-run = ['move-node-to-workspace 5']
-
+run = ['move-node-to-workspace 4']
 
 [[on-window-detected]]
 if.app-id = 'ru.keepcoder.Telegram'
+run = ['move-node-to-workspace 4']
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Safari.WebApp.AA4BBF16-9A63-4AD0-B878-A9B297DDE84F' # Gemini
 run = ['move-node-to-workspace 5']
 
 [[on-window-detected]]
-if.app-id = 'com.philandro.anydesk'
+if.app-id = 'com.apple.Safari.WebApp.4D95C480-D28D-40A9-8F10-C504973CD713' # ChatGPT
+run = ['move-node-to-workspace 5']
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Safari.WebApp.1DD90370-73FB-4127-B3E0-4A3D4B60195B' # Claude
+run = ['move-node-to-workspace 5']
+
+[[on-window-detected]]
+if.app-id = 'com.electron.ollama' # Ollama
+run = ['move-node-to-workspace 5']
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Safari.WebApp.B129E351-B2A9-4819-BE57-80480DDF2953' # NotebookLM
+run = ['move-node-to-workspace 5']
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Safari.WebApp.187B2E7E-1EC8-4D12-9593-C45A99BEDF4B' # Grok
+run = ['move-node-to-workspace 5']
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Safari.WebApp.C7961474-6653-472D-81BB-E6E5B3663F2C' # Perplexity
+run = ['move-node-to-workspace 5']
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Safari.WebApp.031EC186-84ED-4DBF-86FF-66CEF23EEFE0' # LeChat
+run = ['move-node-to-workspace 5']
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Safari.WebApp.AA775D37-1BA5-405B-B457-244A8142AEF5' # OpenRoute
+run = ['move-node-to-workspace 5']
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Music'
 run = ['move-node-to-workspace 6']
 
 [[on-window-detected]]
-# if.app-id = 'com.hnc.Discord'
-# run = ['move-node-to-workspace 0']
-if.app-id = 'md.obsidian'
-run = ['move-node-to-workspace O']
-
-[[on-window-detected]]
 if.app-id = 'org.zotero.zotero'
-run = ['move-node-to-workspace 8']
+run = ['move-node-to-workspace 7']
 
 [[on-window-detected]]
 if.app-id = 'com.apple.iCal'
+run = ['move-node-to-workspace 8']
+
+[[on-window-detected]]
+if.app-id = 'md.obsidian'
+run = ['move-node-to-workspace 8']
+
+[[on-window-detected]]
+if.app-id = 'com.apple.reminders'
 run = ['move-node-to-workspace 8']
 
 [[on-window-detected]]
@@ -268,3 +275,5 @@ run = ['move-node-to-workspace 9']
 if.app-id = 'com.apple.Safari.WebApp.4345D9B1-EE28-4726-A344-5C8AE622D926'
 run = ['move-node-to-workspace 9']
 
+
+# run = ['layout floating']

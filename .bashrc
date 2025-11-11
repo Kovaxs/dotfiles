@@ -31,6 +31,7 @@ alias c='conda activate'
 alias countw='find . -type f | xargs wc -w | tail -1' # count the total number of words in all regular files located in the current directory
 alias sb='source $HOME/.bashrc'
 alias uvj='uv run --with jupyter jupyter lab'
+alias uvip='uv run --with jupyter ipython'
 
 # fzf
 export FD_OPTIONS="--follow --exclude .git --exclude node_modules"

@@ -1,5 +1,5 @@
 [font]
-size = 16
+size = 13
 
 [font.normal]
 # family = "ZedMono Nerd Font Propo"
@@ -13,6 +13,11 @@ option_as_alt = "Both"
 [window.padding]
 x = 7
 y = 0
+
+[mouse]
+bindings = [
+  { mouse = "Right", mods="Control", action = "open" },
+]
 
 [env]
 term = "tmux-256color"
