@@ -3,7 +3,7 @@ font-size = 13
 
 background-opacity = 0.95
 window-decoration = none
-window-padding-x = 7
+window-padding-x = 0
 window-padding-y = 0
 
 macos-option-as-alt = true
