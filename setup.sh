@@ -3,6 +3,8 @@
 # The directory where the Git repository will be cloned
 DOTFILES_DIR="$HOME/dotfiles"
 
+mkdir -p "$HOME/.config/ghostty"
+
 # Creating symbolic links
 # ln -sf "$DOTFILES_DIR/.alacritty.toml" "$HOME/.config/alacritty/.alacritty.toml"
 ln -sf "$DOTFILES_DIR/.bash_profile" "$HOME/.bash_profile"
@@ -14,5 +16,6 @@ ln -sf "$DOTFILES_DIR/.vimrc" "$HOME/.vimrc"
 ln -sf "$DOTFILES_DIR/themes" "$HOME/.config/kitty/themes"
 ln -sf "$DOTFILES_DIR/.alacritty.toml" "$HOME/.alacritty.toml"
 ln -sf "$DOTFILES_DIR/themes/gruvbox_dark.toml" "$HOME/.config/alacritty/themes/themes/gruvbox_dark.toml"
+ln -sf "$DOTFILES_DIR/.config/ghostty/config" "$HOME/.config/ghostty/config"
 
 echo "All dotfiles have been linked."
