@@ -158,12 +158,12 @@ alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 # left monitor - order matters
 
-[workspace-to-monitor-force-assignment]
-10 = 'secondary'
-9 = 'secondary'
-8 = 'secondary'
-7 = 'secondary'
-6 = 'secondary'
+# [workspace-to-monitor-force-assignment]
+# 10 = 'secondary'
+# 9 = 'secondary'
+# 8 = 'secondary'
+# 7 = 'secondary'
+# 6 = 'secondary'
 
 [[on-window-detected]]
 #     if.app-id = 'com.apple.systempreferences'
