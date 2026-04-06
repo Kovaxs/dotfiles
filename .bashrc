@@ -1,5 +1,13 @@
 # Settings
 set -o vi
+# Enable a visual menu for tab completion
+bind 'set show-all-if-ambiguous on'
+
+# Use a single tab to start cycling through the menu
+bind 'TAB:menu-complete'
+
+# Use Shift-Tab to cycle backwards (optional)
+bind '"\e[Z": menu-complete-backward'
 
 export EDITOR=nvim
 # Exporting
@@ -10,16 +18,25 @@ export HISTCONTROL=ignorespace
 export BASH_SILENCE_DEPRECATION_WARNING=1
 # export BASH_COMPLETION_DEBUG=true
 # Export PATHs
-export PATH=$PATH:~/bin
 if [[ $(uname) == "Darwin" ]]; then
+    export PATH=$PATH:/Users/kovaxs/.local/bin
     export PATH=/opt/homebrew/bin:$PATH
-    export PATH=$PATH:$HOME/go/bin/
-    # export PATH="/usr/local/bin:$PATH"
+    # go lan to path
+    export PATH=$PATH:/usr/local/go/bin
+    # opencode
+    export PATH=/Users/kovaxs/.opencode/bin:$PATH
+
+    # Added by LM Studio CLI (lms)
+    export PATH="$PATH:/Users/kovaxs/.lmstudio/bin"
+    # End of LM Studio CLI section
+    # Added by Obsidian
+    export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"
 fi
 
 # Aliases
 alias l='ls -lhaFS'
 alias wl='watch -n 1 ls -lh'
+alias kubeclt='minkube kubectl'
 # alias v='nvim'
 # alias v='nvim'
 # alias vf='nvim $(fzf)'
@@ -56,7 +73,6 @@ PROMPT_LONG=20
 PROMPT_MAX=95
 PROMPT_AT=@
 
-
 if [[ $(uname) == "Darwin" ]]; then
     alias ssha='eval $(ssh-agent) && ssh-add'
     alias cdupct="cd $HOME/Library/CloudStorage/OneDrive-UniversidadPolitécnicadeCartagena"
@@ -80,14 +96,13 @@ if [[ $(uname) == "Darwin" ]]; then
 #     source <(kubectl completion bash)
 fi
 
-
 ####################################################################################################
 # Prompt function
 #      ✓ ✗
 ####################################################################################################
 if [[ $(uname) == "Darwin" ]]; then
     # Conda
-    __conda_setup="$("$HOME/miniconda3/bin/conda" 'shell.bash' 'hook' 2> /dev/null)"
+    __conda_setup="$("$HOME/miniconda3/bin/conda" 'shell.bash' 'hook' 2>/dev/null)"
     if [ $? -eq 0 ]; then
         eval "$__conda_setup"
     else
@@ -109,7 +124,7 @@ function __failed_cmd {
     fi
 }
 
-function __ps1(){
+function __ps1() {
     GREEN="\[\033[32m\]"
     BLUE="\[\033[34m\]"
     MAGENTA="\[\033[35m\] "
@@ -192,3 +207,7 @@ _smart_nvim() {
 # Alias 'nvim' to use the smart function.
 # If you type 'nvim', it will now run '_smart_nvim'.
 alias v='_smart_nvim'
+
+. "$HOME/.local/bin/env"
+
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init bash)"; fi
