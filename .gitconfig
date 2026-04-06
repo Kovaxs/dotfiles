@@ -10,3 +10,9 @@
 	defaultBranch = main
 [alias]
     tree = log --graph --decorate --pretty=oneline --abbrev-commit --all
+[difftool "nvim_difftool"]
+    cmd = nvim -c \"packadd nvim.difftool\" -d \"$LOCAL\" \"$REMOTE\"
+[diff]
+    tool = nvim_difftool
+[difftool]
+    prompt = false
