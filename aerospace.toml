@@ -1,22 +1,21 @@
-# HI
-# Place a copy of this config to ~/.aerospace.toml
-# After that, you can edit ~/.aerospace.toml to your liking
+# AeroSpace configuration
+# See: https://nikitabobko.github.io/AeroSpace/guide
 
-# It's not necessary to copy all keys to your config.
-# If the key is missing in your config, "default-config.toml" will serve as a fallback
+# Use the latest configuration semantics. Version 2 makes persistent workspaces explicit.
+config-version = 2
 
-# You can use it to add commands that run after login to macOS user session.
-# 'start-at-login' needs to be 'true' for 'after-login-command' to work
+# Commands to run after AeroSpace starts
 # Available commands: https://nikitabobko.github.io/AeroSpace/commands
-after-login-command = []
-
-# You can use it to add commands that run after AeroSpace startup.
-# 'after-startup-command' is run after 'after-login-command'
-# Available commands : https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = []
 
 # Start AeroSpace at login
 start-at-login = true
+
+# Automatically reload this file when it changes
+auto-reload-config = true
+
+# Preserve the workspaces previously inferred from the version 1 key bindings.
+persistent-workspaces = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
 
 # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
 enable-normalization-flatten-containers = true
@@ -35,7 +34,7 @@ default-root-container-layout = 'accordion'
 #               tall monitor (anything higher than wide) gets vertical orientation
 default-root-container-orientation = 'auto'
 
-# Possible values: (qwerty|dvorak)
+# Possible values: (qwerty|dvorak|colemak)
 # See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
 key-mapping.preset = 'qwerty'
 
@@ -165,115 +164,109 @@ alt-shift-l = ['join-with right', 'mode main']
 # 7 = 'secondary'
 # 6 = 'secondary'
 
+# Keep workspace 2 tiled when a new window is detected there.
 [[on-window-detected]]
-#     if.app-id = 'com.apple.systempreferences'
-#     if.app-name-regex-substring = 'settings'
-#     if.window-title-regex-substring = 'substring'
-    if.workspace = 'workspace-name 2'
-#     if.during-aerospace-startup = true
-#     check-further-callbacks = true
-    run = ['layout tiling']  # The callback itself
+if = 'test %{workspace} = 2'
+run = ['layout tiling']
 
 [[on-window-detected]]
-if.app-id = 'com.google.Chrome'
+if = 'test %{app-bundle-id} = com.google.Chrome'
 run = ['move-node-to-workspace 1']
 
 [[on-window-detected]]
-if.app-id = 'com.apple.Safari'
+if = 'test %{app-bundle-id} = com.apple.Safari'
 run = ['move-node-to-workspace 1']
 
 # [[on-window-detected]]
-# if.app-id = 'org.alacritty'
-# # if.app-id = 'com.google.Chrome'
-# # if.window-title-regex-substring = '.+(twitch|youtube).+'
+# if = 'test %{app-bundle-id} = org.alacritty'
 # run = ['move-node-to-workspace 2']
 
 [[on-window-detected]]
-if.app-id = 'com.apple.finder'
+if = 'test %{app-bundle-id} = com.apple.finder'
 run = ['move-node-to-workspace 3']
 
 [[on-window-detected]]
-if.app-id = 'com.apple.mail'
+if = 'test %{app-bundle-id} = com.apple.mail'
 run = ['move-node-to-workspace 4']
 
 [[on-window-detected]]
-if.app-id = 'org.mozilla.thunderbird'
+if = 'test %{app-bundle-id} = org.mozilla.thunderbird'
 run = ['move-node-to-workspace 4']
 
 [[on-window-detected]]
-if.app-id = 'com.microsoft.Outlook'
+if = 'test %{app-bundle-id} = com.microsoft.Outlook'
 run = ['move-node-to-workspace 4']
 
 [[on-window-detected]]
-if.app-id = 'com.microsoft.teams2'
+if = 'test %{app-bundle-id} = com.microsoft.teams2'
 run = ['move-node-to-workspace 4']
 
 [[on-window-detected]]
-if.app-id = 'ru.keepcoder.Telegram'
+if = 'test %{app-bundle-id} = ru.keepcoder.Telegram'
 run = ['move-node-to-workspace 4']
 
 [[on-window-detected]]
-if.app-id = 'com.apple.Safari.WebApp.AA4BBF16-9A63-4AD0-B878-A9B297DDE84F' # Gemini
+if = 'test %{app-bundle-id} = com.apple.Safari.WebApp.AA4BBF16-9A63-4AD0-B878-A9B297DDE84F' # Gemini
 run = ['move-node-to-workspace 5']
 
 [[on-window-detected]]
-if.app-id = 'com.apple.Safari.WebApp.4D95C480-D28D-40A9-8F10-C504973CD713' # ChatGPT
+if = 'test %{app-bundle-id} = com.apple.Safari.WebApp.4D95C480-D28D-40A9-8F10-C504973CD713' # ChatGPT
 run = ['move-node-to-workspace 5']
 
 [[on-window-detected]]
-if.app-id = 'com.apple.Safari.WebApp.1DD90370-73FB-4127-B3E0-4A3D4B60195B' # Claude
+if = 'test %{app-bundle-id} = com.apple.Safari.WebApp.1DD90370-73FB-4127-B3E0-4A3D4B60195B' # Claude
 run = ['move-node-to-workspace 5']
 
 [[on-window-detected]]
-if.app-id = 'com.electron.ollama' # Ollama
+if = 'test %{app-bundle-id} = com.electron.ollama' # Ollama
 run = ['move-node-to-workspace 5']
 
 [[on-window-detected]]
-if.app-id = 'com.apple.Safari.WebApp.B129E351-B2A9-4819-BE57-80480DDF2953' # NotebookLM
+if = 'test %{app-bundle-id} = com.apple.Safari.WebApp.B129E351-B2A9-4819-BE57-80480DDF2953' # NotebookLM
 run = ['move-node-to-workspace 5']
 
 [[on-window-detected]]
-if.app-id = 'com.apple.Safari.WebApp.187B2E7E-1EC8-4D12-9593-C45A99BEDF4B' # Grok
+if = 'test %{app-bundle-id} = com.apple.Safari.WebApp.187B2E7E-1EC8-4D12-9593-C45A99BEDF4B' # Grok
 run = ['move-node-to-workspace 5']
 
 [[on-window-detected]]
-if.app-id = 'com.apple.Safari.WebApp.C7961474-6653-472D-81BB-E6E5B3663F2C' # Perplexity
+if = 'test %{app-bundle-id} = com.apple.Safari.WebApp.C7961474-6653-472D-81BB-E6E5B3663F2C' # Perplexity
 run = ['move-node-to-workspace 5']
 
 [[on-window-detected]]
-if.app-id = 'com.apple.Safari.WebApp.031EC186-84ED-4DBF-86FF-66CEF23EEFE0' # LeChat
+if = 'test %{app-bundle-id} = com.apple.Safari.WebApp.031EC186-84ED-4DBF-86FF-66CEF23EEFE0' # LeChat
 run = ['move-node-to-workspace 5']
 
 [[on-window-detected]]
-if.app-id = 'com.apple.Safari.WebApp.AA775D37-1BA5-405B-B457-244A8142AEF5' # OpenRoute
+if = 'test %{app-bundle-id} = com.apple.Safari.WebApp.AA775D37-1BA5-405B-B457-244A8142AEF5' # OpenRoute
 run = ['move-node-to-workspace 5']
 
 [[on-window-detected]]
-if.app-id = 'com.apple.Music'
+if = 'test %{app-bundle-id} = com.apple.Music'
 run = ['move-node-to-workspace 6']
 
 [[on-window-detected]]
-if.app-id = 'org.zotero.zotero'
+if = 'test %{app-bundle-id} = org.zotero.zotero'
 run = ['move-node-to-workspace 7']
 
 [[on-window-detected]]
-if.app-id = 'com.apple.iCal'
+if = 'test %{app-bundle-id} = com.apple.iCal'
 run = ['move-node-to-workspace 8']
 
 [[on-window-detected]]
-if.app-id = 'md.obsidian'
+if = 'test %{app-bundle-id} = md.obsidian'
 run = ['move-node-to-workspace 8']
 
 [[on-window-detected]]
-if.app-id = 'com.apple.reminders'
+if = 'test %{app-bundle-id} = com.apple.reminders'
 run = ['move-node-to-workspace 8']
 
 [[on-window-detected]]
-if.app-id = 'com.apple.Safari.WebApp.E7A9723D-5390-429B-B83D-66DC3CC1799D'
+if = 'test %{app-bundle-id} = com.apple.Safari.WebApp.E7A9723D-5390-429B-B83D-66DC3CC1799D'
 run = ['move-node-to-workspace 9']
 
 [[on-window-detected]]
-if.app-id = 'com.apple.Safari.WebApp.4345D9B1-EE28-4726-A344-5C8AE622D926'
+if = 'test %{app-bundle-id} = com.apple.Safari.WebApp.4345D9B1-EE28-4726-A344-5C8AE622D926'
 run = ['move-node-to-workspace 9']
 
 
