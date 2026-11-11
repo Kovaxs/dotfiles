@@ -15,3 +15,7 @@ fi
 export PATH="$PATH:/Users/kovaxs/.lmstudio/bin"
 # End of LM Studio CLI section
 
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
