@@ -214,3 +214,8 @@ alias v='_smart_nvim'
 if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init bash)"; fi
 . "$HOME/.atuin/bin/env"
 eval "$(atuin init bash)"
+
+# Elan
+source $HOME/.elan/env
+
+export PATH="/Users/kovaxs/.pixi/bin:$PATH"
