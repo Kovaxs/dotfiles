@@ -10,6 +10,7 @@ bind 'TAB:menu-complete'
 bind '"\e[Z": menu-complete-backward'
 
 export EDITOR=nvim
+export GPG_TTY="$(tty)"
 # Exporting
 export HISTFILE=~/.histfile
 export HISTSIZE=25000
